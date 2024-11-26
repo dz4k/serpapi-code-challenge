@@ -1,3 +1,23 @@
+
+# Extract Van Gogh Paintings Code Challenge: Deniz's solution
+
+- Install dependencies: `bundle install`
+- Run program: `ruby lib/extract.rb files/van-gogh-paintings.html`
+- Run tests: `rspec`
+
+I've tested that the output is identical to the expected output
+with the following command (requires bash and jq):
+
+```bash
+# This should produce no output and exit with code 0
+diff <(jq -S . files/expected-array.json) <(ruby lib/extract.rb files/van-gogh-paintings.html | jq -S)
+```
+
+**Original README follows**
+
+---
+
+
 # Extract Van Gogh Paintings Code Challenge
 
 Goal is to extract a list of Van Gogh paintings from the attached Google search results page.
@@ -21,7 +41,7 @@ Parse directly the HTML result page ([html file]) in this repository. No extra H
 [html file]: https://raw.githubusercontent.com/serpapi/code-challenge/master/files/van-gogh-paintings.html
 [expected array]: https://raw.githubusercontent.com/serpapi/code-challenge/master/files/expected-array.json
 
-Add also to your array the painting thumbnails present in the result page file (not the ones where extra requests are needed). 
+Add also to your array the painting thumbnails present in the result page file (not the ones where extra requests are needed).
 
 Test against 2 other similar result pages to make sure it works against different layouts. (Pages that contain the same kind of carrousel. Don't necessarily have to be paintings.)
 
